@@ -1,8 +1,10 @@
-import { render, screen } from '@testing-library/react'
+import { act, render, screen } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { App } from './App'
 
 beforeEach(() => {
+  window.history.replaceState(null, '', '#about')
+
   class IntersectionObserverMock {
     observe = vi.fn()
     disconnect = vi.fn()
@@ -36,5 +38,19 @@ describe('App', () => {
     expect(
       screen.getByRole('navigation', { name: 'Primary navigation' }),
     ).toBeInTheDocument()
+  })
+
+  it('marks a hash-targeted section as the current navigation item', () => {
+    render(<App />)
+
+    act(() => {
+      window.history.replaceState(null, '', '#awards')
+      window.dispatchEvent(new HashChangeEvent('hashchange'))
+    })
+
+    expect(screen.getByRole('link', { name: 'Awards' })).toHaveAttribute(
+      'aria-current',
+      'location',
+    )
   })
 })
