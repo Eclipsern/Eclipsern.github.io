@@ -2,8 +2,8 @@ node_modules/
 dist/
 coverage/
 .vite/
+*.tsbuildinfo
 .DS_Store
 Thumbs.db
 .idea/
 .vscode/
-
