@@ -16,13 +16,11 @@ export function AwardList({ items = awards }: AwardListProps) {
       {items.map((award) => (
         <article className="content-entry award-entry" key={award.id}>
           <div className="entry-meta">
-            <span>{award.issuer}</span>
-            <span>{award.year}</span>
+            <span>
+              {award.issuer} · {award.year}
+            </span>
           </div>
           <h3>{award.name}</h3>
-          <p className="entry-authors">
-            {award.issuer} · {award.year}
-          </p>
           {award.description && (
             <p className="entry-description">{award.description}</p>
           )}
