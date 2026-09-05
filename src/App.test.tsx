@@ -21,7 +21,11 @@ describe('App', () => {
     expect(
       screen.getByRole('heading', { name: 'Wenqin Zhou', level: 1 }),
     ).toBeInTheDocument()
-    expect(screen.getByText('西电网信院大二')).toBeInTheDocument()
+    expect(
+      screen.getByText(
+        'Undergrad student, School of Cyber Engineering, Xidian University',
+      ),
+    ).toBeInTheDocument()
     expect(
       screen.getByRole('link', { name: '24049200434@stu.xidian.edu.cn' }),
     ).toHaveAttribute('href', 'mailto:24049200434@stu.xidian.edu.cn')

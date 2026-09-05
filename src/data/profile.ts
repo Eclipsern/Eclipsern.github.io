@@ -9,7 +9,7 @@ export interface Profile {
 export const profile: Profile = {
   name: 'Wenqin Zhou',
   email: '24049200434@stu.xidian.edu.cn',
-  bio: '西电网信院大二',
+  bio: 'Undergrad student, School of Cyber Engineering, Xidian University',
   avatar: './avatar.jpg',
   avatarAlt: 'Wenqin Zhou 的头像',
 }
